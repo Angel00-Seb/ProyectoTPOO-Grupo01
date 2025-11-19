@@ -29,7 +29,12 @@ abstract class Persona {
     }
 
     public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
+        if (Apellidos == null || Apellidos.trim().isEmpty()) {
+            System.out.println("Error: Los apellidos no pueden estar vacíos.");
+            this.Apellidos = "Sin apellidos";
+        } else {
+            this.Apellidos = Apellidos.trim();
+        }
     }
 
     public String getNombres() {
