@@ -53,23 +53,7 @@ abstract class Persona {
     }
 
     public void setTipoDoc(String TipoDoc) {
-<<<<<<< HEAD
-        if (TipoDoc == null) {
-            this.TipoDoc = null;
-            return;
-        }
-
-        String tipoMayus = TipoDoc.toUpperCase();
-        if (tipoMayus.equals("DNI") || tipoMayus.equals("CE") || tipoMayus.equals("PASAPORTE")) {
-            this.TipoDoc = tipoMayus;
-        }
-        else {
-            System.err.println("Tipo de documento no válido. Debe ser 'DNI', 'CE' o 'PASAPORTE'.");
-            this.TipoDoc = null;
-        }
-=======
         this.TipoDoc = TipoDoc;
->>>>>>> 983902f8865ade6d7ea345055f87cecc585b2e6f
     }
 
     public String getNumDoc() {
@@ -77,32 +61,7 @@ abstract class Persona {
     }
 
     public void setNumDoc(String NumDoc) {
-<<<<<<< HEAD
-        if (this.TipoDoc == null) {
-            System.err.println("Establezca primero un Tipo de Documento válido antes de asignar el Número de Documento.");
-            this.NumDoc = null;
-            return;
-        }
-        int longitudEsperada;
-        if (this.TipoDoc.equals("DNI")) {
-            longitudEsperada = 8;
-        } else if (this.TipoDoc.equals("CE")) {
-            longitudEsperada = 12 ;
-        } else if (this.TipoDoc.equals("PASAPORTE")) {
-            longitudEsperada = 12;
-        } else {
-            longitudEsperada = -1;
-        }
-        
-        if (NumDoc != null && NumDoc.length() == longitudEsperada && NumDoc.matches("\\d+")) {
-            this.NumDoc = NumDoc;
-        } else {
-            System.err.println("Número de Documento no válido para el tipo " + this.TipoDoc + ". Debe tener " + longitudEsperada + " dígitos.");
-            this.NumDoc = null;
-        }
-=======
         this.NumDoc = NumDoc;
->>>>>>> 983902f8865ade6d7ea345055f87cecc585b2e6f
     }
 
     public String getSexo() {
