@@ -67,8 +67,7 @@ abstract class Persona {
         String tipoMayus = TipoDoc.toUpperCase();
         if (tipoMayus.equals("DNI") || tipoMayus.equals("CE") || tipoMayus.equals("PASAPORTE")) {
             this.TipoDoc = tipoMayus;
-        }
-        else {
+        } else {
             System.err.println("Tipo de documento no válido. Debe ser 'DNI', 'CE' o 'PASAPORTE'.");
             this.TipoDoc = null;
         }
