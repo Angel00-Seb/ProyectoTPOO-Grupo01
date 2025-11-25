@@ -6,9 +6,9 @@ abstract class Persona {
     private String Apellidos;
     private String Nombres;
     private String FechaNacimiento; // Formato: DD/MM/AAAA
-    private String TipoDoc; // "DNI", "CE", "PASAPORTE", "RUC"
+    private String TipoDoc; // "DNI", "CE", "PASAPORTE"
     private String NumDoc;
-    private String Sexo; // "M", "F", "Otro"
+    private String Sexo; // "M", "F
     
     //Constructores
     public Persona() {
@@ -42,7 +42,12 @@ abstract class Persona {
     }
 
     public void setNombres(String Nombres) {
-        this.Nombres = Nombres;
+        if (Nombres == null || Nombres.trim().isEmpty()) {
+            System.out.println("Error: Los nombres no pueden estar vacíos.");
+        this.Nombres = "Sin nombres";
+        } else {
+            this.Nombres = Nombres.trim();
+        }
     }
 
     public String getFechaNacimiento() {
@@ -107,7 +112,18 @@ abstract class Persona {
     }
 
     public void setSexo(String Sexo) {
-        this.Sexo = Sexo;
+        if (Sexo == null) {
+            System.out.println("Error: El sexo no puede ser nulo.");
+            this.Sexo = "N"; // o lo que quieras poner por defecto
+            return;
+        }
+        Sexo = Sexo.trim().toUpperCase();
+        if (Sexo.equals("M") || Sexo.equals("F")) {
+            this.Sexo = Sexo;
+        } else {
+            System.out.println("Error: El sexo solo puede ser 'M' o 'F'.");
+            this.Sexo = "N"; // Valor por defecto si quieres
+        }
     }
     
     //ToString (VER DATOS BÁSICOS)
@@ -136,7 +152,7 @@ abstract class Persona {
                 int anioNacimiento = Integer.parseInt(partes[2]);
                 int anioActual = 2024; // Podrías usar Calendar.getInstance().get(Calendar.YEAR)
                 return anioActual - anioNacimiento;
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Error al calcular la edad. Formato esperado: DD/MM/AAAA");
                 return 0;
             }
@@ -151,14 +167,11 @@ abstract class Persona {
     public String ObtenerGeneroCompleto() {
         if (Sexo == null) return "No especificado";
         
-        switch (Sexo.toUpperCase()) {
-            case "M":
-                return "Masculino";
-            case "F":
-                return "Femenino";
-            default:
-                return "Otro";
-        }
+        return switch (Sexo.toUpperCase()) {
+            case "M" -> "Masculino";
+            case "F" -> "Femenino";
+            default -> "Otro";
+        };
     }
     
     public abstract void Registrar();
