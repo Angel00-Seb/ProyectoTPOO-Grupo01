@@ -67,7 +67,7 @@ class Puesto {
     }
     
     //Métodos
-    public void aumentarSueldo(double porcentaje) {
+    public void AumentarSueldo(double porcentaje) {
         if (porcentaje > 0) {
             double aumento = Sueldo * (porcentaje / 100);
             Sueldo += aumento;
@@ -78,11 +78,11 @@ class Puesto {
         }
     }
     
-    public double calcularSueldoAnual() {
+    public double CalcularSueldoAnual() {
         return Sueldo * 12;
     }
     
-    public boolean tieneMayorSueldoQue(Puesto otroPuesto) {
+    public boolean TieneMayorSueldoQue(Puesto otroPuesto) {
         return this.Sueldo > otroPuesto.getSueldo();
     }
 }

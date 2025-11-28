@@ -54,7 +54,7 @@ class Categoria {
     //ToString(VER DATOS)
     @Override
     public String toString() {
-        return "'CATEGORIA'" + "\n\tID_CATEGORIA: " + idCategoria + "\n\tTIPO: " + Tipo;
+        return "'CATEGORIA'\n\tID CATEGORIA: " + idCategoria + "\n\tTIPO: " + Tipo;
     }
     
     //Métodos
