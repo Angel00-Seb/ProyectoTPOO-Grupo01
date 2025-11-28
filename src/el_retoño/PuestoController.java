@@ -1,5 +1,6 @@
 package el_retoño;
 
-public class PuestoController {
+public class PuestoController
+{
     
 }
