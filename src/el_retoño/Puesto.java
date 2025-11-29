@@ -71,18 +71,20 @@ class Puesto {
         if (porcentaje > 0) {
             double aumento = Sueldo * (porcentaje / 100);
             Sueldo += aumento;
-            System.out.println("Sueldo aumentado en " + porcentaje + "%. Nuevo sueldo: S/." + 
-                             String.format("%.2f", Sueldo));
+
+            System.out.println("Sueldo aumentado en " + porcentaje + "%. Nuevo sueldo: S/." +
+                String.format("%.2f", Sueldo));
         } else {
             System.out.println("Error: El porcentaje debe ser mayor a 0.");
         }
     }
-    
+
     public double CalcularSueldoAnual() {
         return Sueldo * 12;
     }
-    
+
     public boolean TieneMayorSueldoQue(Puesto otroPuesto) {
         return this.Sueldo > otroPuesto.getSueldo();
     }
+    
 }

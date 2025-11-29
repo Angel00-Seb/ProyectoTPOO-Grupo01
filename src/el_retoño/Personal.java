@@ -90,41 +90,40 @@ class Personal extends Persona {
             System.out.println("Puesto: " + (Puesto != null ? Puesto.getNombre() : "Sin asignar"));
             System.out.println("Documento: " + ObtenerDocumentoCompleto());
             return true;
-        } else {
-            System.out.println("Error: Número de documento o contraseña incorrectos.");
-            return false;
         }
+        System.out.println("Error: Número de documento o contraseña incorrectos.");
+        return false;
     }
-    
+
     public void AtenderPedido(Pedido pedido) {
         if (pedido != null) {
             PedidosAtendidos.add(pedido);
             pedido.setPersonal(this);
-            System.out.println(ObtenerNombreCompleto() + " atendió el pedido #" + pedido.getIdPedido());
+            System.out.println(ObtenerNombreCompleto() 
+                + " atendió el pedido #" + pedido.getIdPedido());
         }
     }
-    
+
     public void MostrarPedidosAtendidos() {
         System.out.println("\nPEDIDOS ATENDIDOS POR: " + ObtenerNombreCompleto());
-        
         if (PedidosAtendidos.isEmpty()) {
             System.out.println("No ha atendido ningún pedido aún.");
-        } else {
-            double totalVendido = 0;
-            for (Pedido pedido : PedidosAtendidos) {
-                System.out.println("    " + pedido);
-                totalVendido += pedido.getTotal();
-            }
-            System.out.println("-----------------------------------------------");
-            System.out.println("Total pedidos: " + PedidosAtendidos.size());
-            System.out.println("Total vendido: S/." + String.format("%.2f", totalVendido));
+            return;
         }
+        double totalVendido = 0;
+        for (Pedido pedido : PedidosAtendidos) {
+            System.out.println("    " + pedido);
+            totalVendido += pedido.getTotal();
+        }
+        System.out.println("-----------------------------------------------");
+        System.out.println("Total pedidos: " + PedidosAtendidos.size());
+        System.out.println("Total vendido: S/." + String.format("%.2f", totalVendido));
     }
-    
+
     public int ContarPedidosAtendidos() {
         return PedidosAtendidos.size();
     }
-    
+
     public double CalcularTotalVendido() {
         double total = 0;
         for (Pedido pedido : PedidosAtendidos) {
@@ -132,24 +131,23 @@ class Personal extends Persona {
         }
         return total;
     }
-    
+
     public String ObtenerRol() {
         return Puesto != null ? Puesto.getNombre() : "Sin puesto asignado";
     }
-    
+
     public boolean TieneSupervisor() {
         return Supervisor != null;
     }
-    
+
     public boolean CambiarContrasena(String contrasenaActual, String nuevaContrasena) {
         if (this.Contrasena.equals(contrasenaActual)) {
             this.Contrasena = nuevaContrasena;
             System.out.println("Contraseña cambiada exitosamente.");
             return true;
-        } else {
-            System.out.println("Error: La contraseña actual es incorrecta.");
-            return false;
         }
+        System.out.println("Error: La contraseña actual es incorrecta.");
+        return false;
     }
 
     @Override
@@ -158,4 +156,5 @@ class Personal extends Persona {
         System.out.println("ID: " + idPersonal);
         System.out.println(this);
     }
+    
 }

@@ -2,7 +2,7 @@ package el_retoño;
 
 public class El_Retoño {
     public static void main(String[] args) {
-        System.out.println("   SISTEMA DE GESTIÓN - PANADERÍA EL RETOÑO   ");
+        /* System.out.println("   SISTEMA DE GESTIÓN - PANADERÍA EL RETOÑO   ");
         
         // ==================== 1. CREAR PUESTOS ====================
         System.out.println("【 REGISTRANDO PUESTOS 】");
@@ -84,7 +84,29 @@ public class El_Retoño {
         cajeroCarlos.AtenderPedido(pedido2);
         
         PedidoDetalle det4 = new PedidoDetalle(20, p2); // 20 panes franceses
-        PedidoDetalle det5 = new PedidoDetalle(2, p4); // 2 tortas de chocolate
+        
+        pedido2.MostrarDetalles();
+        pedido2.RegistrarPedido();
+        pedido2.MarcarComoFinalizado();
+        
+        // ==================== 6. REPORTES ====================
+        System.out.println("              REPORTES DEL SISTEMA             ");
+        
+        // Historial de clientes
+        cliente1.MostrarHistorialPedidos();
+        cliente2.MostrarHistorialPedidos();
+        
+        // Desempeño del personal
+        vendedoraMaria.MostrarPedidosAtendidos();
+        cajeroCarlos.MostrarPedidosAtendidos();
+        
+        // Stock de productos
+        System.out.println(" STOCK ACTUAL DE PRODUCTOS ");
+        panes.MostrarProductos();
+        tortas.MostrarProductos();
+        
+        System.out.println("           FIN DEL SISTEMA DE GESTIÓN          ");
+    }PedidoDetalle det5 = new PedidoDetalle(2, p4); // 2 tortas de chocolate
         PedidoDetalle det6 = new PedidoDetalle(5, p3); // 5 panes integrales
         
         pedido2.AgregarDetalle(det4);
@@ -112,6 +134,7 @@ public class El_Retoño {
         tortas.MostrarProductos();
         
         System.out.println("           FIN DEL SISTEMA DE GESTIÓN          ");
+        */
     }
     
 }

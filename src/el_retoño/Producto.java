@@ -82,42 +82,40 @@ class Producto {
     //ToString(VER DATOS)
     @Override
     public String toString() {
-        return "ID_PRODUCTO: " + idProducto + "\n\tNOMBRE: " + Nombre + "\n\tPRECIO: S/." + Precio + "\n\tESTADO: " + Estado + "\n\tSTOCK: " + Stock + Categoria;
+        return"ID_PRODUCTO: " + idProducto +
+               "\n\tNOMBRE: " + Nombre +
+               "\n\tPRECIO: S/." + Precio +
+               "\n\tESTADO: " + Estado +
+               "\n\tSTOCK: " + Stock +
+               Categoria;
     }
     
     //Métodos
     public void ActualizarPrecio(double nuevoPrecio) {
         if (nuevoPrecio >= 0) {
             this.Precio = nuevoPrecio;
-            System.out.println("Precio actualizado correctamente para: " + Nombre);
-        } else {
-            System.out.println("Error: El precio debe ser mayor o igual a 0.");
         }
     }
-    
+
     public void CambiarEstado(String nuevoEstado) {
         this.Estado = nuevoEstado;
-        System.out.println("Estado actualizado a: " + nuevoEstado + " para " + Nombre);
     }
-    
+
     public boolean HayStock() {
         return Stock > 0;
     }
-    
+
     public boolean ReducirStock(int cantidad) {
         if (cantidad <= Stock) {
             Stock -= cantidad;
             return true;
-        } else {
-            System.out.println("Error: Stock insuficiente para " + Nombre);
-            return false;
         }
+        return false;
     }
-    
+
     public void AumentarStock(int cantidad) {
         if (cantidad > 0) {
             Stock += cantidad;
-            System.out.println("Stock aumentado en " + cantidad + " para " + Nombre);
         }
     }
 }

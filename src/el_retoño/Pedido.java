@@ -178,4 +178,5 @@ class Pedido {
             System.out.println("Error: No se puede registrar un pedido sin productos.");
         }
     }
+    
 }

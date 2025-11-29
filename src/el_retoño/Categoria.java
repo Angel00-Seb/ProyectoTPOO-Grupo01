@@ -66,33 +66,42 @@ class Categoria {
     public void AgregarProducto(Producto producto) {
         if (producto != null) {
             ListaProductos.add(producto);
-            System.out.println("Producto agregado a la categoría " + idCategoria + ": " + producto.getNombre());
-        } else {
-            System.out.println("Error: No se puede agregar un producto nulo.");
-        }
-    }        
-
-    public void MostrarProductos() {
-        System.out.println("PRODUCTOS DE LA CATEGORIA " + Tipo + " (" + idCategoria + ")");
-        if (ListaProductos.isEmpty()) {
-            System.out.println("No hay productos en esta categoría.");
-        } else {
-            for (Producto p : ListaProductos) {
-                System.out.println("    " + p);
-            }
         }
     }
-   
-    public Producto BuscarProductoPorId(String id) {
+
+    public boolean EliminarProducto(String idProducto) {
         for (Producto p : ListaProductos) {
-            if (p.getIdProducto().equalsIgnoreCase(id)) {
+            if (p.getIdProducto().equals(idProducto)) {
+                ListaProductos.remove(p);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Producto BuscarProducto(String idProducto) {
+        for (Producto p : ListaProductos) {
+            if (p.getIdProducto().equals(idProducto)) {
                 return p;
             }
         }
-        return null; // No encontrado
+        return null;
     }
 
     public int ContarProductos() {
         return ListaProductos.size();
     }
+
+    public void MostrarProductos() {
+        System.out.println("PRODUCTOS DE LA CATEGORIA: " + Tipo);
+        if (ListaProductos.isEmpty()) {
+            System.out.println("  No hay productos registrados.");
+            return;
+        }
+
+        for (Producto p : ListaProductos) {
+            System.out.println("  " + p.getIdProducto() + " - " + p.getNombre());
+        }
+    }
+    
 }

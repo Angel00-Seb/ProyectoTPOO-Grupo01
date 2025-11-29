@@ -74,40 +74,39 @@ abstract class Cliente extends Persona{
     }
     
     //Métodos    
-    public void ActualizarDatos(String nuevaDireccion, String nuevoTelefono, String nuevoEmail) {
+     public void ActualizarDatos(String nuevaDireccion, String nuevoTelefono, String nuevoEmail) {
         this.Direccion = nuevaDireccion;
         this.Telefono = nuevoTelefono;
         this.Email = nuevoEmail;
         System.out.println("Datos del cliente actualizados correctamente.");
     }
-    
+
     public void AgregarPedido(Pedido pedido) {
         if (pedido != null) {
             HistorialPedidos.add(pedido);
             System.out.println("Pedido agregado al historial del cliente " + idCliente);
         }
     }
-    
+
     public void MostrarHistorialPedidos() {
         System.out.println("\nHISTORIAL DE PEDIDOS - Cliente ID: " + idCliente);
         System.out.println("Cliente: " + ObtenerNombreCompleto());
-        
         if (HistorialPedidos.isEmpty()) {
             System.out.println("No hay pedidos registrados para este cliente.");
-        } else {
-            for (Pedido pedido : HistorialPedidos) {
-                System.out.println("    " + pedido);
-            }
-            System.out.println("-----------------------------------------------");
-            System.out.println("Total de pedidos: " + ContarPedidos());
-            System.out.println("Total gastado: S/." + String.format("%.2f", CalcularTotalGastado()));
+            return;
         }
+        for (Pedido pedido : HistorialPedidos) {
+            System.out.println("    " + pedido);
+        }
+        System.out.println("-----------------------------------------------");
+        System.out.println("Total de pedidos: " + ContarPedidos());
+        System.out.println("Total gastado: S/." + String.format("%.2f", CalcularTotalGastado()));
     }
-    
+
     public int ContarPedidos() {
         return HistorialPedidos.size();
     }
-    
+
     public double CalcularTotalGastado() {
         double total = 0;
         for (Pedido pedido : HistorialPedidos) {
@@ -115,8 +114,9 @@ abstract class Cliente extends Persona{
         }
         return total;
     }
-    
+
     public boolean EsClienteFrecuente() {
         return ContarPedidos() >= 5;
     }
+    
 }
